@@ -5,10 +5,28 @@
     <meta charset="utf-8">
     <title>Main Page</title>
     <link rel="stylesheet" href="{% static "css/mystyles.css" %}"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Hi, welcome to Main/index!</H1>
-      <h2>Here are your access records: </h2>
+    <div class="container">
+      <h1>Hi, welcome to Main/index!</H1>
+        <h2>Go to /users to sign up! </h2>
+      </div>
+      <div class="jumbotron">
 
+      <h2>Users:</H2>
+      {% if users %}
+      <ol>
+        {% for person in users %}
+        <li> User Info </li>
+        <ul>
+          <li>First Name: {{ person.first_name }}</li>
+          <li>Last Name: {{ person.last_name }}</li>
+          <li>Email: {{ person.email }} </li>
+        </ul>
+        {% endfor %}
+      </ol>
+</div>
+      {% endif %}
   </body>
 </html>

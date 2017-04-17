@@ -19,11 +19,16 @@ from main import views #custom
 #from Help import views #custom
 from users import views #custom
 from django.conf.urls import include
+from basicforms import views
+from testing_templates import views
+
 
 urlpatterns = [
     url(r'^$',views.index,name='index'), # index is derived from the views.py in the app folders, the index function within it
     url(r'^main/',include('main.urls')), #appHelloWorld is the /name/ (ex: /main/). *.urls is going to the actual app name
     url(r'^admin/', admin.site.urls),
     url(r'^users/',include('users.urls')),
-    url(r'^help/',include('demoHelp.urls'))
+    url(r'^help/',include('demoHelp.urls')),
+    #url(r'^forms/',views.form_name_view,name='form_name'),
+    url(r'^testing_templates/',include('testing_templates.urls')),
 ]
